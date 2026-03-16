@@ -108,16 +108,22 @@ The application adds an icon to your system tray with the following options:
 
 - **Quit** - Exit the application
 
-### Configuration
+### Configuration and Logs
 
-The application stores your preferred device configuration in:
+The application stores configuration and logs in:
 ```
-%USERPROFILE%\.audio-monitor\config.json
+%USERPROFILE%\.audio-monitor\
 ```
 
-This file is automatically created when you set a preferred device and includes:
-- Preferred device ID
-- Preferred device name
+**Configuration file** (`config.json`):
+- Automatically created when you set a preferred device
+- Contains preferred device ID and name
+- Persists across application restarts
+
+**Log file** (`audio-monitor.log`):
+- Contains application startup, device changes, and error messages
+- Useful for troubleshooting issues
+- Rotates automatically to prevent excessive disk usage
 
 ## Project Structure
 
