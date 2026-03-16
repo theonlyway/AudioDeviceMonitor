@@ -203,11 +203,29 @@ func onReady() {
 		if cfg.IsAutoSwitchEnabled() && cfg.PreferredDeviceID != "" {
 			log.Printf("Checking preferred device: %s\n", cfg.PreferredDeviceName)
 			if cfg.PreferredDeviceID != monitor.CurrentDeviceID {
-				log.Printf("Applying preferred device: %s\n", cfg.PreferredDeviceName)
-				if err := monitor.SetDefaultDevice(cfg.PreferredDeviceID); err != nil {
-					log.Printf("Error applying preferred device: %v\n", err)
+				// Check if the preferred device is in the active devices list
+				devices, err := monitor.GetAllDevices()
+				if err != nil {
+					log.Printf("Error getting device list: %v\n", err)
 				} else {
-					log.Printf("Successfully applied preferred device: %s\n", cfg.PreferredDeviceName)
+					deviceFound := false
+					for _, device := range devices {
+						if device.ID == cfg.PreferredDeviceID {
+							deviceFound = true
+							break
+						}
+					}
+
+					if deviceFound {
+						log.Printf("Applying preferred device: %s\n", cfg.PreferredDeviceName)
+						if err := monitor.SetDefaultDevice(cfg.PreferredDeviceID); err != nil {
+							log.Printf("Error applying preferred device: %v\n", err)
+						} else {
+							log.Printf("Successfully applied preferred device: %s\n", cfg.PreferredDeviceName)
+						}
+					} else {
+						log.Printf("Preferred device is not currently active: %s\n", cfg.PreferredDeviceName)
+					}
 				}
 			}
 		} else if cfg.PreferredDeviceID != "" {
