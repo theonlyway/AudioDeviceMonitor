@@ -14,11 +14,14 @@
     "postUpdateOptions": [
         "gomodTidy"
     ],
-    "golang": {
-        "enabled": true
-    },
     "dependencyDashboard": true,
     "packageRules": [
+        {
+            "matchCategories": [
+                "golang"
+            ],
+            "enabled": true
+        },
         {
             "description": "Automatically merge non-major updates",
             "matchUpdateTypes": [
