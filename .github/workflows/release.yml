@@ -97,7 +97,7 @@ jobs:
             - name: Create Release
               uses: softprops/action-gh-release@v2
               with:
-                  name: Release ${{ needs.semver.outputs.next_version }}
+                  name: ${{ needs.semver.outputs.next_version }}
                   tag_name: ${{ needs.semver.outputs.next_version }}
                   body: |
                       ## 📦 Download
