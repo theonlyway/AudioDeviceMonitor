@@ -252,19 +252,90 @@ func (m *Monitor) SetDefaultDevice(deviceID string) error {
 	}
 	defer ole.CoUninitialize()
 
+	// First, verify that the device exists and is active
+	deviceExists := false
+
+	// Create device enumerator to check if device is active
+	unknown, err := ole.CreateInstance(windows.CLSID_MMDeviceEnumerator, windows.IID_IMMDeviceEnumerator)
+	if err != nil {
+		return fmt.Errorf("failed to create device enumerator: %w", err)
+	}
+	defer unknown.Release()
+
+	enumerator := (*windows.IMMDeviceEnumerator)(unsafe.Pointer(unknown))
+
+	// Enumerate active audio endpoints
+	var collection *windows.IMMDeviceCollection
+	ret, _, _ := syscall.SyscallN(
+		enumerator.Vtbl.EnumAudioEndpoints,
+		uintptr(unsafe.Pointer(enumerator)),
+		uintptr(eRender),
+		uintptr(DEVICE_STATE_ACTIVE),
+		uintptr(unsafe.Pointer(&collection)),
+	)
+	if ret != 0 {
+		return fmt.Errorf("failed to enumerate devices: HRESULT 0x%X", ret)
+	}
+	defer windows.ReleaseDeviceCollection(collection)
+
+	// Get count
+	var count uint32
+	ret, _, _ = syscall.SyscallN(
+		collection.Vtbl.GetCount,
+		uintptr(unsafe.Pointer(collection)),
+		uintptr(unsafe.Pointer(&count)),
+	)
+	if ret != 0 {
+		return fmt.Errorf("failed to get device count: HRESULT 0x%X", ret)
+	}
+
+	// Check if the device is in the active devices list
+	for i := uint32(0); i < count; i++ {
+		var device *windows.IMMDevice
+		ret, _, _ = syscall.SyscallN(
+			collection.Vtbl.Item,
+			uintptr(unsafe.Pointer(collection)),
+			uintptr(i),
+			uintptr(unsafe.Pointer(&device)),
+		)
+		if ret != 0 {
+			continue
+		}
+
+		var deviceIDPtr *uint16
+		ret, _, _ = syscall.SyscallN(
+			device.Vtbl.GetId,
+			uintptr(unsafe.Pointer(device)),
+			uintptr(unsafe.Pointer(&deviceIDPtr)),
+		)
+		windows.ReleaseDevice(device)
+
+		if ret == 0 {
+			currentDeviceID := ole.UTF16PtrToString(deviceIDPtr)
+			if currentDeviceID == deviceID {
+				deviceExists = true
+				break
+			}
+		}
+	}
+
+	if !deviceExists {
+		return fmt.Errorf("device is not active or not found")
+	}
+
 	// Use IPolicyConfig interface (undocumented Windows API)
 	// CLSID_CPolicyConfigClient = {870AF99C-171D-4F9E-AF0D-E63DF40C2BC9}
 	clsid := ole.NewGUID("{870AF99C-171D-4F9E-AF0D-E63DF40C2BC9}")
 	// IID_IPolicyConfig = {F8679F50-850A-41CF-9C72-430F290290C8}
 	iid := ole.NewGUID("{F8679F50-850A-41CF-9C72-430F290290C8}")
 
-	unknown, err := ole.CreateInstance(clsid, iid)
+	unknown2, err := ole.CreateInstance(clsid, iid)
 	if err != nil {
 		return fmt.Errorf("failed to create policy config: %w", err)
 	}
-	defer unknown.Release()
+	defer unknown2.Release()
 
-	policyConfig := (*windows.IPolicyConfig)(unsafe.Pointer(unknown))
+	policyConfig := (*windows.IPolicyConfig)(unsafe.Pointer(unknown2))
 
 	// Convert device ID to UTF16
 	deviceIDPtr, err := syscall.UTF16PtrFromString(deviceID)
@@ -273,7 +344,7 @@ func (m *Monitor) SetDefaultDevice(deviceID string) error {
 	}
 
 	// SetDefaultEndpoint(deviceID, eConsole)
-	ret, _, _ := syscall.SyscallN(
+	ret, _, _ = syscall.SyscallN(
 		policyConfig.Vtbl.SetDefaultEndpoint,
 		uintptr(unsafe.Pointer(policyConfig)),
 		uintptr(unsafe.Pointer(deviceIDPtr)),
