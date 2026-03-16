@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2026-03-16
+### :wrench: Chores
+- [`5f93734`](https://github.com/theonlyway/AudioDeviceMonitor/commit/5f93734c86684416bb2524535b2f1b2e2c170554) - **config**: migrate config renovate.json *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+
+
 ## [1.0.3] - 2026-03-16
 ### :bug: Bug Fixes
 - [`c042d57`](https://github.com/theonlyway/AudioDeviceMonitor/commit/c042d578926d5efc2c071600527056e2b37637f7) - ignore main branch on push events in build workflow [skip ci] *(commit by [@rtt-anthonywaye](https://github.com/rtt-anthonywaye))*
@@ -39,3 +44,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.0]: https://github.com/theonlyway/AudioDeviceMonitor/compare/0.0.1...1.0.0
 [1.0.2]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.0.1...1.0.2
 [1.0.3]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.0.2...1.0.3
+[1.0.4]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.0.3...1.0.4
