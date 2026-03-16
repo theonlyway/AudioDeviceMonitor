@@ -25,13 +25,13 @@ jobs:
             next_version: ${{ steps.semver.outputs.nextStrict }}
         steps:
             - name: Checkout code
-              uses: actions/checkout@v6
+              uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
               with:
                   fetch-depth: 0
 
             - name: Get Next Version
               id: semver
-              uses: ietf-tools/semver-action@v1
+              uses: ietf-tools/semver-action@c90370b2958652d71c06a3484129a4d423a6d8a8 # v1
               with:
                   token: ${{ github.token }}
                   branch: main
@@ -50,10 +50,10 @@ jobs:
             contents: write
         steps:
             - name: Checkout code
-              uses: actions/checkout@v6
+              uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
             - name: Set up Go
-              uses: actions/setup-go@v6
+              uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6
               with:
                   go-version-file: go.mod
 
@@ -69,7 +69,7 @@ jobs:
                   Compress-Archive -Path bin/audio-monitor.exe -DestinationPath bin/audio-monitor-windows-amd64.zip
 
             - name: Upload artifacts
-              uses: actions/upload-artifact@v7
+              uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
               with:
                   name: binaries
                   path: |
@@ -84,18 +84,18 @@ jobs:
             contents: write
         steps:
             - name: Checkout code
-              uses: actions/checkout@v6
+              uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
               with:
                   fetch-depth: 0
 
             - name: Download artifacts
-              uses: actions/download-artifact@v8
+              uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
               with:
                   name: binaries
                   path: ./bin
 
             - name: Create Release
-              uses: softprops/action-gh-release@v2
+              uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe # v2
               with:
                   name: ${{ needs.semver.outputs.next_version }}
                   tag_name: ${{ needs.semver.outputs.next_version }}
@@ -114,27 +114,27 @@ jobs:
             contents: write
         steps:
             - name: Checkout code
-              uses: actions/checkout@v6
+              uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
               with:
                   ref: main
                   fetch-depth: 0
 
             - name: Update CHANGELOG
               id: changelog
-              uses: requarks/changelog-action@v1
+              uses: requarks/changelog-action@6d71e098526ee17bae963f058d34cd763378337f # v1
               with:
                   token: ${{ github.token }}
                   tag: ${{ needs.semver.outputs.next_version }}
 
             - name: Update Release with Changelog
-              uses: softprops/action-gh-release@v2
+              uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe # v2
               with:
                   tag_name: ${{ needs.semver.outputs.next_version }}
                   body: ${{ steps.changelog.outputs.changes }}
                   append_body: true
 
             - name: Commit CHANGELOG.md
-              uses: stefanzweifel/git-auto-commit-action@v7
+              uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7
               with:
                   branch: main
                   commit_message: "docs: update CHANGELOG.md for ${{ needs.semver.outputs.next_version }} [skip ci]"
