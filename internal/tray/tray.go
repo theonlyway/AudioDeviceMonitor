@@ -6,6 +6,8 @@ import (
 	"image"
 	"image/png"
 	"log"
+	"os/exec"
+	"path/filepath"
 	"time"
 
 	"github.com/getlantern/systray"
@@ -86,6 +88,7 @@ func onReady() {
 	// Options menu
 	mOptions := systray.AddMenuItem("Options", "Application options")
 	mAutoSwitch := mOptions.AddSubMenuItem("Auto-Switch on Startup", "Enable/disable automatic switching to preferred device")
+	mOpenConfigFolder := mOptions.AddSubMenuItem("Open Config Folder", "Open the configuration folder in Explorer")
 
 	systray.AddSeparator()
 	mQuit := systray.AddMenuItem("Quit", "Quit the application")
@@ -276,6 +279,25 @@ func onReady() {
 			}
 			if err := cfg.Save(); err != nil {
 				log.Printf("Error saving config: %v\n", err)
+			}
+		}
+	}()
+
+	// Handle open config folder
+	go func() {
+		for range mOpenConfigFolder.ClickedCh {
+			configPath, err := config.GetConfigPath()
+			if err != nil {
+				log.Printf("Error getting config path: %v\n", err)
+				continue
+			}
+			configDir := filepath.Dir(configPath)
+			log.Printf("Opening config folder: %s\n", configDir)
+
+			// Open Explorer to the config directory
+			cmd := exec.Command("explorer", configDir)
+			if err := cmd.Start(); err != nil {
+				log.Printf("Error opening config folder: %v\n", err)
 			}
 		}
 	}()
