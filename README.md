@@ -104,7 +104,11 @@ The application adds an icon to your system tray with the following options:
   - Lists all available audio output devices
   - Current preferred device marked with ✓
   - Click any device to set it as your preferred default
-  - Automatically applied on next startup
+  - Automatically applied on next startup (if auto-switch is enabled)
+
+- **Auto-Switch on Startup** - Toggle automatic switching to preferred device on application startup
+  - When enabled (✓): Automatically switches to your preferred device when the app starts
+  - When disabled: Keeps current default device on startup
 
 - **Quit** - Exit the application
 
