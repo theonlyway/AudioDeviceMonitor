@@ -1,6 +1,6 @@
 # Audio Device Toast Service
 
-A Windows system tray application that monitors audio devices and provides quick switching capabilities with automatic preferred device selection.
+A Windows system tray application that monitors audio devices and provides quick switching capabilities with automatic preferred device selection.z
 
 ## Features
 
