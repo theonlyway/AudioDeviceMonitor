@@ -33,14 +33,33 @@ func Init() error {
 		Compress:   false, // don't compress old logs
 	}
 
-	// Write to both stdout and file
-	multiWriter := io.MultiWriter(os.Stdout, fileLogger)
+	// Try to write to both stdout and file if console is available
+	// If there's no console (Windows GUI app), just write to file
+	var output io.Writer
+	if hasConsole() {
+		output = io.MultiWriter(os.Stdout, fileLogger)
+	} else {
+		output = fileLogger
+	}
 
-	// Set the default logger to use both outputs
-	log.SetOutput(multiWriter)
+	// Set the default logger to use the appropriate output
+	log.SetOutput(output)
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 
 	log.Printf("Logging initialized - writing to: %s\n", logFile)
 
 	return nil
+}
+
+// hasConsole checks if the application has a console attached
+func hasConsole() bool {
+	// On Windows, check if stdout is a valid handle
+	// If running without a console (e.g., built with -H windowsgui), this will fail
+	stat, err := os.Stdout.Stat()
+	if err != nil {
+		return false
+	}
+	// Check if stdout is a character device (console) or a pipe
+	// If it's neither, there's likely no console
+	return (stat.Mode() & os.ModeCharDevice) != 0
 }
