@@ -62,7 +62,7 @@ jobs:
 
             - name: Build binary
               run: |
-                  go build -v -ldflags="-s -w -X main.Version=${{ needs.semver.outputs.next_version }}" -o bin/audio-monitor.exe ./cmd/audio-monitor
+                  go build -v -ldflags="-s -w -H=windowsgui -X main.Version=${{ needs.semver.outputs.next_version }}" -o bin/audio-monitor.exe ./cmd/audio-monitor
 
             - name: Compress binary
               run: |

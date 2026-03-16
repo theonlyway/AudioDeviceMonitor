@@ -1,4 +1,4 @@
-# Audio Device Toast Service
+# Audio Device Monitor
 
 A Windows system tray application that monitors audio devices and provides quick switching capabilities with automatic preferred device selection.
 
@@ -64,7 +64,7 @@ Unregister-ScheduledTask -TaskName "AudioDeviceMonitor" -Confirm:$false
 1. Clone the repository:
 ```bash
 git clone https://github.com/theonlyway/AudioDeviceMonitor.git
-cd AudioDeviceToastService
+cd AudioDeviceMonitor
 ```
 
 2. Install dependencies:
@@ -122,7 +122,7 @@ This file is automatically created when you set a preferred device and includes:
 ## Project Structure
 
 ```
-AudioDeviceToastService/
+AudioDeviceMonitor/
 ├── assets/              # Static assets (icons)
 │   ├── assets.go        # Embedded assets
 │   ├── systray_icon.png # System tray icon (recommended: 16x16 or 32x32 pixels)
