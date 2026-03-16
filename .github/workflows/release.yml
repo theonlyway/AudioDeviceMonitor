@@ -37,6 +37,10 @@ jobs:
                   branch: main
                   patchAll: true
                   majorList: "breaking,major"
+                  fallbackTag: "0.0.0"
+                  noVersionBumpBehavior: "current"
+                  noNewCommitBehavior: "current"
+                  prefix: ""
 
     build:
         name: Build Binary
