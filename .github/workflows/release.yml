@@ -69,7 +69,7 @@ jobs:
                   Compress-Archive -Path bin/audio-monitor.exe -DestinationPath bin/audio-monitor-windows-amd64.zip
 
             - name: Upload artifacts
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: binaries
                   path: |
@@ -89,7 +89,7 @@ jobs:
                   fetch-depth: 0
 
             - name: Download artifacts
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v8
               with:
                   name: binaries
                   path: ./bin
