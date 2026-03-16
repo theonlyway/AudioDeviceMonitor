@@ -83,8 +83,9 @@ func onReady() {
 
 	systray.AddSeparator()
 
-	// Auto-switch toggle
-	mAutoSwitch := systray.AddMenuItem("Auto-Switch on Startup", "Enable/disable automatic switching to preferred device")
+	// Options menu
+	mOptions := systray.AddMenuItem("Options", "Application options")
+	mAutoSwitch := mOptions.AddSubMenuItem("Auto-Switch on Startup", "Enable/disable automatic switching to preferred device")
 
 	systray.AddSeparator()
 	mQuit := systray.AddMenuItem("Quit", "Quit the application")
