@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2026-03-16
+### :wrench: Chores
+- [`de0a455`](https://github.com/theonlyway/AudioDeviceMonitor/commit/de0a4554e714258dfa9f1b596c84dd9592cc9790) - **deps**: update go dependencies *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`666f2e1`](https://github.com/theonlyway/AudioDeviceMonitor/commit/666f2e1046e46f2af6a39b02c47584347626c994) - **deps**: pin dependencies *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+
+
 ## [1.0.4] - 2026-03-16
 ### :wrench: Chores
 - [`5f93734`](https://github.com/theonlyway/AudioDeviceMonitor/commit/5f93734c86684416bb2524535b2f1b2e2c170554) - **config**: migrate config renovate.json *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
@@ -45,3 +51,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.2]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.0.1...1.0.2
 [1.0.3]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.0.2...1.0.3
 [1.0.4]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.0.3...1.0.4
+[1.0.5]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.0.4...1.0.5
