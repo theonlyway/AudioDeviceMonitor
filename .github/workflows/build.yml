@@ -1,0 +1,42 @@
+name: Build
+
+on:
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: windows-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Go
+              uses: actions/setup-go@v5
+              with:
+                  go-version: "1.23"
+
+            - name: Cache Go modules
+              uses: actions/cache@v4
+              with:
+                  path: |
+                      ~\AppData\Local\go-build
+                      ~\go\pkg\mod
+                  key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+                  restore-keys: |
+                      ${{ runner.os }}-go-
+
+            - name: Download dependencies
+              run: go mod download
+
+            - name: Build
+              run: go build -v -o bin/audio-monitor.exe ./cmd/audio-monitor
+
+            - name: Upload artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: audio-monitor-windows
+                  path: bin/audio-monitor.exe
+                  retention-days: 7

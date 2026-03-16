@@ -1,0 +1,19 @@
+# Binaries
+bin/
+*.exe
+
+# Build artifacts
+main.exe
+audio-monitor.exe
+
+# Temporary files
+*.tmp
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
