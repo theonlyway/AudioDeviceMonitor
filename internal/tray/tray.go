@@ -57,8 +57,16 @@ func onReady() {
 	systray.SetTitle("Audio Monitor")
 	systray.SetTooltip("Audio Device Monitor - Running")
 
-	// Pre-create device menu items (max 10 devices)
-	maxDevices := 10
+	// Start audio monitoring in background
+	monitor := audio.New()
+	devices, err := monitor.GetAllDevices()
+	if err != nil {
+		log.Printf("Error getting devices: %v\n", err)
+		return
+	}
+
+	// Pre-create device menu items (with extra slots for future devices) to avoid dynamic menu changes
+	maxDevices := len(devices) + 10
 
 	mDevices := systray.AddMenuItem("Devices", "View all audio devices")
 
@@ -92,9 +100,6 @@ func onReady() {
 
 	systray.AddSeparator()
 	mQuit := systray.AddMenuItem("Quit", "Quit the application")
-
-	// Start audio monitoring in background
-	monitor := audio.New()
 
 	// Load configuration
 	cfg, err := config.Load()
