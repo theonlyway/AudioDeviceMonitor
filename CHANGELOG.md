@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-03-24
+### :sparkles: New Features
+- [`3f49f87`](https://github.com/theonlyway/AudioDeviceMonitor/commit/3f49f872a17e8a64417a3ba6973db43ce9e97888) - enhance Golang learning guide with detailed explanations and additional resources [skip ci] *(commit by [@rtt-anthonywaye](https://github.com/rtt-anthonywaye))*
+
+### :recycle: Refactors
+- [`4954eed`](https://github.com/theonlyway/AudioDeviceMonitor/commit/4954eed514242552e11f78bef24508217cfc6bd5) - update Golang learning guide for clarity and structure [skip ci] *(commit by [@rtt-anthonywaye](https://github.com/rtt-anthonywaye))*
+
+### :wrench: Chores
+- [`e54b0ad`](https://github.com/theonlyway/AudioDeviceMonitor/commit/e54b0adc14803ff816bbffcc92fbc6570d7d5dd5) - **deps**: update actions/cache digest to 6682284 *(PR [#11](https://github.com/theonlyway/AudioDeviceMonitor/pull/11) by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`66d7051`](https://github.com/theonlyway/AudioDeviceMonitor/commit/66d70516c0d3507d7fbf9bea187c9c0970017283) - **deps**: update module golang.org/x/image to v0.38.0 *(PR [#12](https://github.com/theonlyway/AudioDeviceMonitor/pull/12) by [@renovate[bot]](https://github.com/apps/renovate))*
+
+
 ## [1.4.0] - 2026-03-17
 ### :sparkles: New Features
 - [`87fd183`](https://github.com/theonlyway/AudioDeviceMonitor/commit/87fd1835c658b08f5366b547b7beab037a45b5ed) - add guide for writing Golang code with explanations and review process [skip ci] *(commit by [@rtt-anthonywaye](https://github.com/rtt-anthonywaye))*
@@ -92,3 +104,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.2.2]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.2.1...1.2.2
 [1.3.0]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.2.2...1.3.0
 [1.4.0]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.3.0...1.4.0
+[1.5.0]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.4.0...1.5.0
