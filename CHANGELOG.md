@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.2] - 2026-04-08
+### :wrench: Chores
+- [`5d47d42`](https://github.com/theonlyway/AudioDeviceMonitor/commit/5d47d42caf65466de76a9f73821cb7eeb961da13) - **deps**: update module golang.org/x/sys to v0.43.0 *(PR [#15](https://github.com/theonlyway/AudioDeviceMonitor/pull/15) by [@renovate[bot]](https://github.com/apps/renovate))*
+
+
 ## [1.5.1] - 2026-04-08
 ### :wrench: Chores
 - [`4d07169`](https://github.com/theonlyway/AudioDeviceMonitor/commit/4d0716946926598f70e304c0199e815d0a9d670b) - **deps**: update actions/setup-go digest to 4a36011 *(PR [#13](https://github.com/theonlyway/AudioDeviceMonitor/pull/13) by [@renovate[bot]](https://github.com/apps/renovate))*
@@ -112,3 +117,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.4.0]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.3.0...1.4.0
 [1.5.0]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.4.0...1.5.0
 [1.5.1]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.5.0...1.5.1
+[1.5.2]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.5.1...1.5.2
