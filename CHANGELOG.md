@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1] - 2026-04-08
+### :wrench: Chores
+- [`4d07169`](https://github.com/theonlyway/AudioDeviceMonitor/commit/4d0716946926598f70e304c0199e815d0a9d670b) - **deps**: update actions/setup-go digest to 4a36011 *(PR [#13](https://github.com/theonlyway/AudioDeviceMonitor/pull/13) by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`d6f6512`](https://github.com/theonlyway/AudioDeviceMonitor/commit/d6f6512e9e106886ec31b1f503e98d4e308134b6) - **deps**: update dependency go to v1.26.2 *(PR [#14](https://github.com/theonlyway/AudioDeviceMonitor/pull/14) by [@renovate[bot]](https://github.com/apps/renovate))*
+
+
 ## [1.5.0] - 2026-03-24
 ### :sparkles: New Features
 - [`3f49f87`](https://github.com/theonlyway/AudioDeviceMonitor/commit/3f49f872a17e8a64417a3ba6973db43ce9e97888) - enhance Golang learning guide with detailed explanations and additional resources [skip ci] *(commit by [@rtt-anthonywaye](https://github.com/rtt-anthonywaye))*
@@ -105,3 +111,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.3.0]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.2.2...1.3.0
 [1.4.0]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.3.0...1.4.0
 [1.5.0]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.4.0...1.5.0
+[1.5.1]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.5.0...1.5.1
