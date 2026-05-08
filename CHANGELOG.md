@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.4] - 2026-05-08
+### :wrench: Chores
+- [`25edd93`](https://github.com/theonlyway/AudioDeviceMonitor/commit/25edd93edd33e60b8be0fa3ace03f1b89c3c1155) - **deps**: update actions/upload-artifact digest to 043fb46 *(PR [#17](https://github.com/theonlyway/AudioDeviceMonitor/pull/17) by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`a1fd46b`](https://github.com/theonlyway/AudioDeviceMonitor/commit/a1fd46b2f81bdac830d101b0d658b7dcea9f0b63) - **deps**: update softprops/action-gh-release digest to 3bb1273 *(PR [#18](https://github.com/theonlyway/AudioDeviceMonitor/pull/18) by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`6e7d21e`](https://github.com/theonlyway/AudioDeviceMonitor/commit/6e7d21ece69ff3f7a505385b5c745ac7898d6b4d) - **deps**: update actions/cache digest to 27d5ce7 *(PR [#20](https://github.com/theonlyway/AudioDeviceMonitor/pull/20) by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`9c2260f`](https://github.com/theonlyway/AudioDeviceMonitor/commit/9c2260f59ab275015148d806b2236970cb341079) - **deps**: update requarks/changelog-action digest to b78a335 *(PR [#21](https://github.com/theonlyway/AudioDeviceMonitor/pull/21) by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`45447d1`](https://github.com/theonlyway/AudioDeviceMonitor/commit/45447d17b293745f47c710c17d1721420af29bbf) - **deps**: update go module directive to v1.26.3 *(PR [#22](https://github.com/theonlyway/AudioDeviceMonitor/pull/22) by [@renovate[bot]](https://github.com/apps/renovate))*
+
+
 ## [1.5.3] - 2026-04-09
 ### :wrench: Chores
 - [`8494d0e`](https://github.com/theonlyway/AudioDeviceMonitor/commit/8494d0ee11fd81294ddc83f5b8c8094518b66b04) - **deps**: update module golang.org/x/image to v0.39.0 *(PR [#16](https://github.com/theonlyway/AudioDeviceMonitor/pull/16) by [@renovate[bot]](https://github.com/apps/renovate))*
@@ -124,3 +133,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.5.1]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.5.0...1.5.1
 [1.5.2]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.5.1...1.5.2
 [1.5.3]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.5.2...1.5.3
+[1.5.4]: https://github.com/theonlyway/AudioDeviceMonitor/compare/1.5.3...1.5.4
