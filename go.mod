@@ -1,6 +1,6 @@
 module github.com/theonlyway/AudioDeviceMonitor
 
-go 1.26.3
+go 1.26.4
 
 require (
 	github.com/getlantern/systray v1.2.2
