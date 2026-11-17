@@ -14,7 +14,9 @@
     "postUpdateOptions": [
         "gomodTidy"
     ],
-    "dependencyDashboard": true,
+    "dependencyDashboard": {
+        "enabled": true
+    },
     "packageRules": [
         {
             "matchCategories": [
